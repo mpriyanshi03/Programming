@@ -6,8 +6,7 @@ using namespace std;
 
 class Solution {
     public:
-      vector<int> topologicalSort(vector<vector<int>>& adj) {
-          // Your code here
+      vector<int> topologicalSort(vector<vector<int>>& adj) { 
           int n=adj.size();
           
           vector<int> indegree(n, 0);

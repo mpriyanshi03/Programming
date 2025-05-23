@@ -3,6 +3,7 @@ CANNOT BE APPLIED TO GRAPHS WITH NEGATIVE WT
 BECAUSE AS WE WILL CONTINUE THE DISTNCE OR WT WILL DECRESE ONLY AND IT WILL CAUSE INFINITE LOOP
 CAN BE IMPLEMENTED USING PRIORITY QUEUE, SET AND QUEUE
 T.C= Elog(V)
+WE TAKE MIN-HEAP
 */
 
 #include <bits/stdc++.h>
@@ -14,6 +15,8 @@ public:
   typedef pair<int, int> P;
   vector<int> shortestPath(int n, int m, vector<vector<int>>& edges)
   {
+
+    //CREATING ADJACENCY LIST
     unordered_map<int, vector<pair<int,int>>> adj;
     for(auto& it : edges){
       int u=it[0];
@@ -22,12 +25,12 @@ public:
       adj[u].push_back({v, time});
       adj[v].push_back({u, time});
   }
-
-    vector<int> distance(n, INT_MAX);
+    
+    vector<int> distance(n, INT_MAX); //TO FIND THE DISTANCE OF EACH NODE FROM SRC NODE
     distance[0] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
 
-    pq.push({0, 0}); // wt,node
+    pq.push({0, 0}); // wt,node--> STORED IN ASCENDING ODER OF WT
     while (!pq.empty())
     {
       int currwt = pq.top().first;
@@ -59,8 +62,8 @@ public:
 int main()
 {
   Dijkastra dj;
-  int n= 5, m= 6;
-  vector<vector<int>>edges = {{0, 2, 1}, {1, 4, 5}, {1, 2, 4}, {0, 3, 2}, {3, 2, 3}, {2, 4, 1}};
+  int n= 6, m= 6;
+  vector<vector<int>>edges = {{0, 2, 1}, {0, 1, 3}, {1, 3, 4}, {2, 3, 2}, {3, 4, 2}, {3, 5, 1}};
   vector<int> distance= dj.shortestPath(n, m , edges);
 
   for(auto &it : distance){
