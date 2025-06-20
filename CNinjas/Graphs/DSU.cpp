@@ -1,9 +1,9 @@
 //DISJOINT SET =(O(4* alpha)) IS USED TO TELL IF A VERTEX BELONG TO THE SAME COMPONENT OR NOT IN CONSTANT TIME
 //USUALLY USED IN DYNAMIC GRAPHS
 //find parent() and union()
-//union() by rank and siz
+//union() by rank and size
 //union()- IT IS TO JOIN THE COMPONENTS I.E., THE EDGES
-// union() T.C = O(4* alpha)= O(constant) since alpha is too small
+//union() T.C = O(4* alpha)= O(constant) since alpha is too small
 
 #include <bits/stdc++.h>
 using namespace std;
